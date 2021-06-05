@@ -10,6 +10,7 @@
 	 stage("Provision infrastructure") {
 	 steps {
          script{
+	    sh "pwd"
 	    sh "cd packer"
 	    sh "packer build -var 'ami_name_prefix=http-benchmarking' template.json"
 	    sh "cd ../terraform"
