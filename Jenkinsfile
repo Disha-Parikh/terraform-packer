@@ -4,7 +4,7 @@
 	 stages {
 	 stage('checkout') {
 	 steps {
-	 git branch: 'master', url: 'ihttps://github.com/Disha-Parikh/terraform-packer.git'}
+	 git branch: 'master', url: 'https://github.com/Disha-Parikh/terraform-packer.git'}
 	 }
 
 	 stage("Provision infrastructure") {
