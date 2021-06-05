@@ -13,7 +13,7 @@
 	    sh "pwd"
 	    sh "cd packer"
 	    sh "packer build -var 'ami_name_prefix=http-benchmarking' template.json"
-	    sh "cd ../terraform"
+	    sh "cd /var/lib/jenkins/workspace/terraform_packer/terraform"
 	    sh "terraform init"
             sh "terraform plan -out=plan"
             sh 'terraform apply plan'
