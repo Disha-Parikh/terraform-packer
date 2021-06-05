@@ -13,7 +13,7 @@
 	    sh "pwd"
 	    sh "cd /var/lib/jenkins/workspace/terraform_packer/packer"
 	    sh "/usr/local/bin/packer validate /var/lib/jenkins/workspace/terraform_packer/packer/template.json"
-	    sh "/usr/local/bin/packer build -var 'ami_name_prefix=http-benchmarking' template.json >  /var/lib/jenkins/workspace/terraform_packer/packer/packer_output.log"
+	    sh "/usr/local/bin/packer build -var 'ami_name_prefix=http-benchmarking'  /var/lib/jenkins/workspace/terraform_packer/packer/template.json >  /var/lib/jenkins/workspace/terraform_packer/packer/packer_output.log"
 	    sh "echo 'Hopefully I am build an ami' "
 	    sh "sleep 6"
 	    sh "cd /var/lib/jenkins/workspace/terraform_packer/terraform"
