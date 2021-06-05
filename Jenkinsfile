@@ -9,9 +9,12 @@
 
 	 stage("Provision infrastructure") {
 	 steps {
-         sh 'terraform init'
          script{
-            sh "TF_VAR_access_key=${AWS_ACESS_KEY_ID} TF_VAR_secret=${AWS_SECRET_ACCESS_KEY}  terraform plan -out=plan"
+	    sh "cd packer"
+	    sh "packer build -var 'ami_name_prefix=http-benchmarking' template.json"
+	    sh "cd ../terraform"
+	    sh "terraform init"
+            sh "terraform plan -out=plan"
             sh 'terraform apply plan'
 
 
@@ -33,7 +36,7 @@
                 echo (userinput)
 
                 if(userinput=="yes"){
-                                         sh 'TF_VAR_access_key=${AWS_ACESS_KEY_ID} TF_VAR_secret=${AWS_SECRET_ACCESS_KEY}   terraform destroy -auto-approve'
+                                         sh 'terraform destroy -auto-approve'
                             }
                 else{
                     echo "Infrastructure stands as it is!"
