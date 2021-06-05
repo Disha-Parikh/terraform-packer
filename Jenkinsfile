@@ -12,7 +12,7 @@
          script{
 	    sh "pwd"
 	    sh "cd packer"
-	    sh "packer build -var 'ami_name_prefix=http-benchmarking' template.json > /root/packer_out.log"
+	    sh "packer build -var 'ami_name_prefix=http-benchmarking' template.json > /tmp/packer_out.log"
 	    sh "echo 'Hopefully I am build an ami' "
 	    sh "sleep 600"
 	    sh "cd /var/lib/jenkins/workspace/terraform_packer/terraform"
