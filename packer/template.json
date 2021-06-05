@@ -4,7 +4,7 @@
     },
     "builders": [{
         "ami_description": "An AMI with HTTP benchmarking tools, based on Ubuntu.",
-        "ami_name": "{{user `ami_name_prefix`}}-{{isotime | clean_resource_name}}",
+        "ami_name": "Packer-{{isotime | clean_resource_name}}",
         "instance_type": "t2.micro",
         "region": "{{user `region`}}",
         "source_ami_filter": {
