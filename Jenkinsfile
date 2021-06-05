@@ -11,10 +11,11 @@
 	 steps {
          script{
 	    sh "pwd"
-	    sh "cd packer"
+	    sh "cd /var/lib/jenkins/workspace/terraform_packer/packer"
+	    sh "/usr/local/bin/packer validate template.json"
 	    sh "packer build -var 'ami_name_prefix=http-benchmarking' template.json > /tmp/packer_out.log"
 	    sh "echo 'Hopefully I am build an ami' "
-	    sh "sleep 600"
+	    sh "sleep 6"
 	    sh "cd /var/lib/jenkins/workspace/terraform_packer/terraform"
 	    sh "/usr/local/bin/terraform init"
             sh "/usr/local/bin/terraform plan -out=plan"
